@@ -1,0 +1,16 @@
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\bin\Release\BarcodeToPlc.exe.config
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\bin\Release\BarcodeToPlc.exe
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\bin\Release\BarcodeToPlc.pdb
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\bin\Release\Sharp7.dll
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\bin\Release\Sharp7.pdb
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.csproj.AssemblyReference.cache
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.csproj.SuggestedBindingRedirects.cache
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.About.resources
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.Edit.resources
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.Form1.resources
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.Properties.Resources.resources
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.csproj.GenerateResource.cache
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.csproj.CoreCompileInputs.cache
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.csproj.CopyComplete
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.exe
+C:\Users\alecabellec\source\repos\CodeBarreToPlc\BarcodeToPlc\obj\Release\BarcodeToPlc.pdb
