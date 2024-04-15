@@ -34,6 +34,7 @@
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Valid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,8 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Date,
             this.Data,
-            this.Valid});
+            this.Valid,
+            this.columnHeader1});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
@@ -79,6 +81,12 @@
             // 
             this.Valid.Text = "Valide";
             this.Valid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Valid.Width = 161;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Other";
+            this.columnHeader1.Width = 91;
             // 
             // textBox1
             // 
@@ -200,6 +208,7 @@
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
 

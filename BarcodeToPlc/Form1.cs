@@ -35,6 +35,7 @@ namespace BarcodeToPlc
 
         ParamsApp p;
 
+        string appDataPathFull;
 
         public Form1()
         {
@@ -46,15 +47,25 @@ namespace BarcodeToPlc
             //Cache la fenetre
             this.WindowState = FormWindowState.Minimized;
 
+            var appDataPath = System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
+             appDataPathFull = appDataPath + "\\SIIF\\BarcodeToPlc\\";
+
+            if (!Directory.Exists(appDataPathFull)) {
+
+                Directory.CreateDirectory(appDataPathFull);
+            
+            }
+
             //Parametres de l'application
-            if (!File.Exists("Config.xml"))
+            if (!File.Exists(appDataPathFull+"Config.xml"))
             {
                 p = new ParamsApp();
                 p.AdressIP = "192.32.98.50";
                 p.DBnumber = 5;
                 p.CodeLenght = 12;
                 p.RegexFilter = "^([A-Z]{3}_[0-9]{5}-[0-9]{2}){1}";
-                p.SaveFromXml("Config.xml");
+                p.SaveFromXml(appDataPathFull + "Config.xml");
             }
 
             //Chargement de parametres de l'application
@@ -125,7 +136,6 @@ namespace BarcodeToPlc
             }
         }
 
-
         private void dataRecieve(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort DataCodeBarre = (SerialPort)sender;
@@ -167,6 +177,7 @@ namespace BarcodeToPlc
             {
                 item.SubItems.Add("OK");
             }
+
 
             //Ajoute a la liste view le code barre lu
             listView1.Invoke((new Action(() =>
@@ -255,6 +266,7 @@ namespace BarcodeToPlc
 
             client.Disconnect();
 
+
         }
 
 
@@ -321,8 +333,10 @@ namespace BarcodeToPlc
             DialogResult r = edit.ShowDialog();
             if (r == DialogResult.OK)
             {
-                p.SaveFromXml("Config.xml");
+                p.SaveFromXml(appDataPathFull +"Config.xml");
             }
         }
+
+
     }
 }
