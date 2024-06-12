@@ -69,7 +69,7 @@ namespace BarcodeToPlc
             }
 
             //Chargement de parametres de l'application
-            p = ParamsApp.LoadToXml("Config.xml");
+            p = ParamsApp.LoadToXml(appDataPathFull + "Config.xml");
 
 
             UpdateParams(p, null);
@@ -337,6 +337,14 @@ namespace BarcodeToPlc
             }
         }
 
+        private void fichierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

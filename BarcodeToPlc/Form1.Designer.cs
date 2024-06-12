@@ -98,6 +98,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(773, 29);
             this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // menuStrip1
             // 
@@ -120,6 +121,7 @@
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(91, 34);
             this.fichierToolStripMenuItem.Text = "Fichier";
+            this.fichierToolStripMenuItem.Click += new System.EventHandler(this.fichierToolStripMenuItem_Click);
             // 
             // configurationToolStripMenuItem
             // 
