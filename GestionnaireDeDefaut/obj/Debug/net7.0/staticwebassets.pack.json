@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\alecabellec\\source\\repos\\CodeBarreToPlc\\GestionnaireDeDefaut\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.GestionnaireDeDefaut.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.GestionnaireDeDefaut.props",
+      "PackagePath": "build\\GestionnaireDeDefaut.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.GestionnaireDeDefaut.props",
+      "PackagePath": "buildMultiTargeting\\GestionnaireDeDefaut.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.GestionnaireDeDefaut.props",
+      "PackagePath": "buildTransitive\\GestionnaireDeDefaut.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

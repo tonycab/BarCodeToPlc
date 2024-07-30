@@ -16,7 +16,7 @@ namespace BarcodeToPlc
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
 
             using (Mutex mutex = new Mutex(false, AppId))

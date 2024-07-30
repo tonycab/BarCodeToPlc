@@ -130,6 +130,7 @@ namespace BarcodeToPlc
 
             if (!Validationip(textBox1.Text))
             {
+                
                 e.Cancel = true;
                 textBox1.Focus();
                 errorProvider1.SetError(textBox1, "Adresse IP incorrect");

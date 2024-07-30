@@ -3,7 +3,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SIIF BarCodeToPlc"
-#define MyAppVersion "0.0.1"
+#define MyAppVersion "0.0.6"
 #define MyAppPublisher "SIIF"
 #define MyAppURL "https://www.siif.fr/"
 #define MyAppExeName "BarcodeToPlc.exe"
@@ -28,7 +28,7 @@ DefaultGroupName={#MyAppName} {#MyAppVersion}
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
-PrivilegesRequired=admin
+;PrivilegesRequired=admin
 OutputDir=..\Setup
 OutputBaseFilename=Setup {#MyAppName} {#MyAppVersion}
 Compression=lzma

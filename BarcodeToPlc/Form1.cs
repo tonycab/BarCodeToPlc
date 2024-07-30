@@ -37,6 +37,9 @@ namespace BarcodeToPlc
 
         string appDataPathFull;
 
+        LoggerApp logger = LoggerApp.Factory();
+
+
         public Form1()
         {
             InitializeComponent();
@@ -44,21 +47,27 @@ namespace BarcodeToPlc
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            logger.eventlog += AffichageLogs;
+
             //Cache la fenetre
             this.WindowState = FormWindowState.Minimized;
 
             var appDataPath = System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-             appDataPathFull = appDataPath + "\\SIIF\\BarcodeToPlc\\";
-
-            if (!Directory.Exists(appDataPathFull)) {
-
-                Directory.CreateDirectory(appDataPathFull);
+            appDataPathFull = appDataPath + "\\SIIF\\BarcodeToPlc\\";
             
+            logger.Info("STARTING APPLICATION");
+
+            try { 
+
+            if (!Directory.Exists(appDataPathFull))
+            {
+                Directory.CreateDirectory(appDataPathFull);
             }
 
             //Parametres de l'application
-            if (!File.Exists(appDataPathFull+"Config.xml"))
+            if (!File.Exists(appDataPathFull + "Config.xml"))
             {
                 p = new ParamsApp();
                 p.AdressIP = "192.32.98.50";
@@ -71,6 +80,8 @@ namespace BarcodeToPlc
             //Chargement de parametres de l'application
             p = ParamsApp.LoadToXml(appDataPathFull + "Config.xml");
 
+        
+
 
             UpdateParams(p, null);
             p.ChangParams += UpdateParams;
@@ -81,10 +92,40 @@ namespace BarcodeToPlc
 
             Reader.DataReceived += dataRecieve;
 
+
+
             //Task de recherche de port com pour lecteur code barre
             DiscoveryReaderBarcode = Task.Run(() => { while (Stop) { ReaderBarcode.DiscoveryReaderBarCode(); } });
 
+        }catch(Exception ex)
+            {
+				logger.Error(ex.Message);
+			}
+
+
         }
+
+        private void AffichageLogs(DateTime arg1, LoggerApp.LogLevel arg2, string arg3)
+        {
+			String line;
+			try
+			{
+				StreamWriter sw = new StreamWriter(appDataPathFull + "Logs.txt",true);
+			
+				sw.WriteLine($"{arg1.ToString().PadRight(16)} | {arg2.ToString().PadRight(10)} | {arg3}");
+
+				//Close the file
+				sw.Close();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Exception: " + e.Message);
+			}
+			finally
+			{
+				Console.WriteLine("Executing finally block.");
+			}
+		}
 
         private void UpdateParams(object sender, EventArgs e)
         {
@@ -97,7 +138,7 @@ namespace BarcodeToPlc
 
         private void AddDeviceBarCode(PortEventArgs args)
         {
-
+            try { 
             Console.WriteLine("new device :{0} - {1} ", args.Name, args.Description);
 
             if (args.Description.Contains("Barcode Scanner"))
@@ -116,6 +157,11 @@ namespace BarcodeToPlc
                     Reader.BaudRate = 9600;
                     Reader.Open();
                 }
+            }}catch(Exception e)
+            {
+                Console.WriteLine("Execption :{0} ", e);
+
+                logger.Error(e.Message);
             }
 
         }
@@ -123,6 +169,7 @@ namespace BarcodeToPlc
         //Appeler lorqu'un port serie n'est plus détécté
         private void RemoveDeviceBarCode(PortEventArgs args)
         {
+            try { 
             Console.WriteLine("remove device :{0} - {1} ", args.Name, args.Description);
 
             if (textBox1.Text == args.Description)
@@ -134,12 +181,22 @@ namespace BarcodeToPlc
                     Reader.Close();
                 }
             }
+            }catch(Exception e) { 
+
+                Console.WriteLine("Execption :{0} ", e);
+
+                logger.Error(e.Message);
+            }
         }
+
+
 
         private void dataRecieve(object sender, SerialDataReceivedEventArgs e)
         {
-            SerialPort DataCodeBarre = (SerialPort)sender;
 
+            try { 
+
+            SerialPort DataCodeBarre = (SerialPort)sender;
 
             bool valid = true;
 
@@ -167,10 +224,13 @@ namespace BarcodeToPlc
                         valid = false;
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
+
+                    logger.Error(ex.Message);
                     valid = false;
                     item.SubItems.Add("REGEX INVALID");
+
                 }
             }
             else
@@ -187,11 +247,12 @@ namespace BarcodeToPlc
                 if (listView1.Items.Count > 20) listView1.Items.Remove(listView1.Items[0]);
             }
             )));
+     
 
-
-            //Connection au PLC
-            var client = new S7Client();
-            int connectionResult = client.ConnectTo(p.AdressIP, 0, 1);
+                //Connection au PLC
+                var client = new S7Client();
+                int connectionResult = client.ConnectTo(p.AdressIP, 0, 1);
+   
 
             //Connection établie
             if (connectionResult == 0)
@@ -243,8 +304,9 @@ namespace BarcodeToPlc
                     });
 
 
-                    Console.WriteLine("Execption :{0} ", e);
-                }
+                    Console.WriteLine("Execption :{0} ", ex);
+                    logger.Error(ex.Message);
+                    }
 
 
             }
@@ -266,7 +328,12 @@ namespace BarcodeToPlc
 
             client.Disconnect();
 
-
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Execption :{0} ", ex);
+                logger.Error(ex.Message);
+            }
         }
 
 
@@ -275,28 +342,38 @@ namespace BarcodeToPlc
 
             Task.Run(() =>
             {
-
-                Thread.Sleep(100);
-
-                for (int i = 0; i < number; i++)
+                try
                 {
-                    Thread.Sleep(200);
+                    Thread.Sleep(100);
 
-                    reader.Write(new byte[] { 0x07 }, 0, 1);
+                    for (int i = 0; i < number; i++)
+                    {
+                        Thread.Sleep(200);
+
+                        reader.Write(new byte[] { 0x07 }, 0, 1);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine("Execption :{0} ", ex);
+                    logger.Error(ex.Message);
                 }
 
             });
-
-
         }
 
 
 
-        private async void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private  void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Stop = false;
-            DiscoveryReaderBarcode.Wait();
-        }
+			logger.Info("CLOSE APPLICATION");
+			Stop = false;
+           DiscoveryReaderBarcode.Wait();
+			logger.Info("STOP DISCOVERY COM");
+
+            
+		}
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -333,7 +410,7 @@ namespace BarcodeToPlc
             DialogResult r = edit.ShowDialog();
             if (r == DialogResult.OK)
             {
-                p.SaveFromXml(appDataPathFull +"Config.xml");
+                p.SaveFromXml(appDataPathFull + "Config.xml");
             }
         }
 
