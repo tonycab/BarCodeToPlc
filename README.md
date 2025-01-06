@@ -10,6 +10,17 @@
 </div>
 
 BarcodeToPlc est une application Windows pour intégrer un lecteur de code barre USB Datalogic TouchLite-i-TD1120 avec un automate Siemens
+<!-- TD1120 -->
+<div align="center">
+<img src="Images/TD1120.jpg" alt="TD1120" width="120" height="120"> 
+  </a>
+</div>
+
+```mermaid
+graph TD;
+    Lecteur --> APP;
+    APP --> PLC;
+```
 
 > [!NOTE]
 > Il est nécessaire de configurer la douchette avec le logiciel DataLogic Alladin ➡️ [Site Datalogic](https://aladdin.datalogic.com/#/configuration/home)
@@ -20,9 +31,9 @@ BarcodeToPlc est une application Windows pour intégrer un lecteur de code barre
 
 ## 1 - TELECHARGER
 
-Télécharger l'installateur➡️ [Setup]([https://github.com/tonycab/AbbBackup/releases/download/v1.1.0.0/AbbBackup.exe](https://github.com/tonycab/BarCodeToPlc/releases/tag/v0.0.6))
+Télécharger l'installateur➡️ [Setup](https://github.com/tonycab/BarCodeToPlc/releases/tag/v0.0.6)
 
-Configurer la douchette avec le logiciel Aladdin Datalogic et avec le fichier de configuration.
+Configurer la douchette avec le logiciel Aladdin Datalogic et avec le fichier de configuration.➡️ [CONF]( https://github.com/tonycab/BarCodeToPlc/tree/main/Config%20TouchLite%20TD1120)
 
 ## 2 - COMMENCER
 
@@ -62,7 +73,7 @@ Le DB doit avoir la structure ci-dessous :
 
 - [x] Ajout d'un filtre Regex
 - [x] Ajout d'un logger
-- [ ] Etendre l'application à d'autre lecteur de code barre
+- [ ] Etendre l'application à d'autres lecteurs de code barre
 
 ## 5 - INFORMATION
 > [!NOTE]
