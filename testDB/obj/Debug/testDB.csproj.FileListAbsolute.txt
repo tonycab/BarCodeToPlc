@@ -1,8 +1,0 @@
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\bin\Debug\testDB.exe.config
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\bin\Debug\testDB.exe
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\bin\Debug\testDB.pdb
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\obj\Debug\testDB.csproj.AssemblyReference.cache
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\obj\Debug\testDB.csproj.SuggestedBindingRedirects.cache
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\obj\Debug\testDB.csproj.CoreCompileInputs.cache
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\obj\Debug\testDB.exe
-C:\Users\alecabellec\source\repos\CodeBarreToPlc\testDB\obj\Debug\testDB.pdb
