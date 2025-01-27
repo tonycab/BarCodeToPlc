@@ -3,11 +3,13 @@
 # BarCodeToPlc
 
 <!-- LOGO -->
+<!--
 <div align="center">
   <a href="https://github.com/tonycab/BarCodeToPlc">
     <img src="BarcodeToPlc/logo.png" alt="Logo" width="120" height="120">
   </a>
 </div>
+--!>
 
 BarcodeToPlc est une application Windows pour intégrer un lecteur de code barre USB Datalogic TouchLite-i-TD1120 avec un automate Siemens
 <!-- TD1120 -->
